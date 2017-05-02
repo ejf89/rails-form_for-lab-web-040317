@@ -1145,3 +1145,94 @@ ActionView::Template::Error (First argument in form cannot contain nil or be emp
   Rendered /Users/ericfarber/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
   Rendered /Users/ericfarber/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
   Rendered /Users/ericfarber/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (393.1ms)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "eric"], ["last_name", "farber"], ["created_at", "2017-05-02 01:53:52.652279"], ["updated_at", "2017-05-02 01:53:52.652279"]]
+  [1m[36m (17.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/students/new" for ::1 at 2017-05-01 21:54:23 -0400
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 64ms (Views: 52.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/students" for ::1 at 2017-05-01 21:54:28 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kGJWuUFw2VOcAHWsjDtcdCCenkQYFIlO8chBTGiz7NZeQ5SGVTgdXLlYR70L8Fu5RA3Q4ZZTicfOQc5XyQPFpA==", "student"=>{"first_name"=>"yolanda", "last_name"=>"jackson"}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "yolanda"], ["last_name", "jackson"], ["created_at", "2017-05-02 01:54:28.987726"], ["updated_at", "2017-05-02 01:54:28.987726"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 10ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/students/4" for ::1 at 2017-05-01 21:54:29 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered students/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 58ms (Views: 39.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2017-05-02 09:05:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 518ms (Views: 494.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/school_classes" for ::1 at 2017-05-02 09:05:59 -0400
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kDJ+wF1k23bCNZwJf2uEh/v6vHBj6a0JjlDX+ZNUiApeE7z/SSwfeedtrhj4oINKn2ny1e2urYCx2VjiMuSheA==", "school_class"=>{"title"=>"the class", "room_number"=>"2"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "the class"], ["room_number", 2]]
+  [1m[35m (3.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/school_classes/3
+Completed 302 Found in 12ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/school_classes/3" for ::1 at 2017-05-02 09:05:59 -0400
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered school_classes/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 46ms (Views: 35.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/3" for ::1 at 2017-05-02 09:06:01 -0400
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered school_classes/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2017-05-02 09:06:04 -0400
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 62ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/school_classes" for ::1 at 2017-05-02 09:06:08 -0400
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TUWxMy6VRWZZpsp0Xu92eoVGk4vXaTXSaUZ37zbx4cSDZHMMOt2BaXz++GXZJHG34dXdLlkuNVtWz/j0l0HItg==", "school_class"=>{"title"=>"big class", "room_number"=>"40"}, "commit"=>"Create School class"}
+  [1m[36m (3.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)  [["title", "big class"], ["room_number", 40]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/school_classes/4
+Completed 302 Found in 8ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/school_classes/4" for ::1 at 2017-05-02 09:06:08 -0400
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 60ms (Views: 57.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes" for ::1 at 2017-05-02 09:06:12 -0400
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.2ms)
